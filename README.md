@@ -1,5 +1,6 @@
- 
- 
+## **step 1**<br>
+ ![step 1](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/m1.png)
+ ![step 1](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/m2.png)<br>
 **_1_** 中添加 **D:\MATLAB7\bin\win32<br>**
 **_2_** 中添加 **D:\MATLAB7\extern\include<br>**
 **_3_** 中添加 **D:\MATLAB7\extern\lib\win32\microsoft\msvc71<br>**
@@ -11,8 +12,9 @@
 **libeng.lib<br>**
 **libmat.lib<br>**
 
-_示例程序_：***main.cpp***
+ ![step 2](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/m3.png)<br>
 
+_示例程序_：***main.cpp***
 ##Code
 	#include <engine.h>
 	#include <iostream>
