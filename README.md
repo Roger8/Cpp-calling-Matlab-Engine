@@ -1,5 +1,6 @@
 # C++ 调用 *Matlab Engine* 步骤
 
+**matlab文档说明**http://cn.mathworks.com/help/matlab/calling-matlab-engine-from-c-c-and-fortran-programs.html?s_tid=srchtitle
 ## **step 1**<br>
  ![step 1](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/img/m1.png)
  ![step 1](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/img/m2.png)<br>
