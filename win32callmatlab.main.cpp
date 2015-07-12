@@ -15,7 +15,7 @@ const char g_szClassName[] = "myWindowClass";
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-    //ÉùÃ÷MatlabÒýÇæ£¬²¢´ò¿ª
+    //Ã‰Ã¹ÃƒÃ·MatlabÃ’Ã½Ã‡Ã¦Â£Â¬Â²Â¢Â´Ã²Â¿Âª
 	Engine *m_pEngine;
 	m_pEngine=engOpen(NULL);
 	engSetVisible(m_pEngine,0);
@@ -30,35 +30,35 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
    //         GetModuleFileName(hInstance, szFileName, MAX_PATH);
    //         MessageBox(hwnd, szFileName, "This program is:", MB_OK | MB_ICONINFORMATION);
 			
-			if(m_pEngine==NULL)
-			{
-				exit(1);
-			}
-			const int arraysize=1000;
-			const double deg=.0174;
-			double SinArray[arraysize];
-
-			for(int i=0;i<arraysize;i++)
-			{
-				SinArray[i]=sin(i*deg);
-			}
-			//cout<<"example";
-			mxArray* SIN =mxCreateDoubleMatrix(arraysize,1,mxREAL);
-			memcpy((void*)mxGetPr(SIN),(void*)SinArray,sizeof(double)*arraysize);
-			engPutVariable(m_pEngine,"sinegraph",SIN);
-			engEvalString(m_pEngine,"figure('units','normalized','outerposition',[0 0 1 1])");
-			engEvalString(m_pEngine,"plot(sinegraph),");
+		if(m_pEngine==NULL)
+		{
+			exit(1);
+		}
+		const int arraysize=1000;
+		const double deg=.0174;
+		double SinArray[arraysize];
+	
+		for(int i=0;i<arraysize;i++)
+		{
+			SinArray[i]=sin(i*deg);
+		}
+		//cout<<"example";
+		mxArray* SIN =mxCreateDoubleMatrix(arraysize,1,mxREAL);
+		memcpy((void*)mxGetPr(SIN),(void*)SinArray,sizeof(double)*arraysize);
+		engPutVariable(m_pEngine,"sinegraph",SIN);
+		engEvalString(m_pEngine,"figure('units','normalized','outerposition',[0 0 1 1])");
+		engEvalString(m_pEngine,"plot(sinegraph),");
 
 			//system("pause");
 			//engClose(m_pEngine);
 
         }
         break;
-		case WM_RBUTTONDOWN:
-			{
-				engEvalString(m_pEngine,"close all");
-			}
-			break;
+	case WM_RBUTTONDOWN:
+		{
+			engEvalString(m_pEngine,"close all");
+		}
+		break;
         case WM_CLOSE:
             DestroyWindow(hwnd);
         break;
