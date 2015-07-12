@@ -18,7 +18,7 @@
  ![step 2](https://github.com/Rogerbin/Cpp-calling-Matlab-Engine/blob/master/img/m3.png)<br>
 
 _示例程序_：***main.cpp***
-##Code
+##cpp
 	#include <engine.h>
 	#include <iostream>
 	#include <string>
@@ -58,6 +58,7 @@ _示例程序_：***main.cpp***
 		engPutVariable(m_pEngine,"sinegraph",SIN);
 		engEvalString(m_pEngine,"figure('units','normalized','outerposition',[0 0 1 1])");
 		engEvalString(m_pEngine,"plot(sinegraph),");
+		mxDestroyArray(SIN);
 		system("pause");
 		engClose(m_pEngine);
 	}
