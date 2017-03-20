@@ -62,3 +62,29 @@ int main()
 	system("pause");
 	engClose(m_pEngine);
 }
+```
+
+------
+# LNK1123: 转换到 COFF 期间失败: 文件无效或损坏
+
+用VS2010编译C++项目时出现这样的错误：
+
+LNK1123: 转换到 COFF 期间失败: 文件无效或损坏
+
+**方案一：（这个方法比较好，在用qt运行时出现问题也能解决）
+
+复制 C:\Windows\winsxs\x86_netfx-cvtres_for_vc_and_vb_b03f5f7f11d50a3a_6.1.7601.17514_none_ba1c770af0b2031b 目录下的 cvtres.exe 到C:\Program Files\Microsoft Visual Studio 10.0\VC\bin 目录下，直接覆盖替换。
+
+**方案二：
+
+是嵌入清单的问题，于是对该工程以及所有依赖工程进行如下操作
+右键->工程属性->配置属性-> 清单工具->输入和输出->嵌入清单，选择[否]
+
+1>LINK : fatal error LNK1123: 转换到 COFF 期间失败: 文件无效或损坏
+1>CVTRES : fatal error CVT1100: 资源重复。类型: MANIFEST，名称: 1，语言: 0x0409
+
+这个是由于日志文件引起的，可以将
+
+项目\属性\配置属性\清单工具\输入和输出\嵌入清单：原来是“是”，改成“否”。
+或者将
+项目\属性\配置属性\链接器\清单文件\生成清单：原来是“是”，改成“否”。
